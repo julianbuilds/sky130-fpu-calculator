@@ -5,15 +5,10 @@ project:
   description:  "32-bit Floating-Point Unit Arithmetic Core integrated with an interactive UART Controller."
   author:       "Julian"
   top_module:   "tt_um_digital_asic_fp_calculator"
-  
-  # Cuántos bloques de Tiny Tapeout ocupa. 
-  # Tu diseño tiene la densidad optimizada, por lo que 1 tile (1x1) es suficiente.
-  tiles: "1x1"    
-  
-  # Tu reloj maestro está seteado a un periodo de 20ns (50 MHz = 50000000 Hz)
-  clock_hz: 50000000  
+  language:     "Verilog"
+  tiles:        "1x1"    
+  clock_hz:     50000000  
 
-  # Lista estricta de todos los archivos de hardware en src/ que debe compilar
   source_files:
     - "project.v"
     - "chip_top.v"
@@ -23,50 +18,31 @@ project:
     - "uart_rx.v"
     - "flopoco_synthesized.v"
 
-# Declaración de la distribución física de pines (Pinout)
+# Distribución física de pines estricta solicitada por el validador
 pinout:
-  ui_in:
-    - "UART RX (Serial Input from PC)"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-  uo_out:
-    - "UART TX (Serial Output to PC)"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-  uio_in:
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-  uio_out:
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-  uio_oe:
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
-    - "Unused"
+  ui[0]: "UART RX (Serial Input from PC)"
+  ui[1]: "unused"
+  ui[2]: "unused"
+  ui[3]: "unused"
+  ui[4]: "unused"
+  ui[5]: "unused"
+  ui[6]: "unused"
+  ui[7]: "unused"
+
+  uo[0]: "UART TX (Serial Output to PC)"
+  uo[1]: "unused"
+  uo[2]: "unused"
+  uo[3]: "unused"
+  uo[4]: "unused"
+  uo[5]: "unused"
+  uo[6]: "unused"
+  uo[7]: "unused"
+
+  uio[0]: "unused"
+  uio[1]: "unused"
+  uio[2]: "unused"
+  uio[3]: "unused"
+  uio[4]: "unused"
+  uio[5]: "unused"
+  uio[6]: "unused"
+  uio[7]: "unused"

@@ -1,39 +1,72 @@
 # Tiny Tapeout project information
 project:
+  yaml_version: "4"
   title:        "ASIC Floating-Point FPU Calculator"
-  description:  "32-bit Floating-Point Unit Arithmetic Core integrated with an interactive UART Controller for real-time calculation visualization."
+  description:  "32-bit Floating-Point Unit Arithmetic Core integrated with an interactive UART Controller."
   author:       "Julian"
-  language:     "Verilog"
   top_module:   "tt_um_digital_asic_fp_calculator"
+  
+  # Cuántos bloques de Tiny Tapeout ocupa. 
+  # Tu diseño tiene la densidad optimizada, por lo que 1 tile (1x1) es suficiente.
+  tiles: "1x1"    
+  
+  # Tu reloj maestro está seteado a un periodo de 20ns (50 MHz = 50000000 Hz)
+  clock_hz: 50000000  
 
-# Declaración de pines para la oblea física
-pins:
-  # Entradas dedicadas (ui_in)
-  ui_in[0]: "UART RX (Serial Input from PC)"
-  ui_in[1]: "Unused"
-  ui_in[2]: "Unused"
-  ui_in[3]: "Unused"
-  ui_in[4]: "Unused"
-  ui_in[5]: "Unused"
-  ui_in[6]: "Unused"
-  ui_in[7]: "Unused"
+  # Lista estricta de todos los archivos de hardware en src/ que debe compilar
+  source_files:
+    - "project.v"
+    - "chip_top.v"
+    - "fp_calculator_top.v"
+    - "uart_controller.v"
+    - "uart_tx.v"
+    - "uart_rx.v"
+    - "flopoco_synthesized.v"
 
-  # Salidas dedicadas (uo_out)
-  uo_out[0]: "UART TX (Serial Output to PC)"
-  uo_out[1]: "Unused"
-  uo_out[2]: "Unused"
-  uo_out[3]: "Unused"
-  uo_out[4]: "Unused"
-  uo_out[5]: "Unused"
-  uo_out[6]: "Unused"
-  uo_out[7]: "Unused"
-
-  # Pines bidireccionales (uio_in / uio_out)
-  uio_in[0]: "Unused"
-  uio_in[1]: "Unused"
-  uio_in[2]: "Unused"
-  uio_in[3]: "Unused"
-  uio_in[4]: "Unused"
-  uio_in[5]: "Unused"
-  uio_in[6]: "Unused"
-  uio_in[7]: "Unused"
+# Declaración de la distribución física de pines (Pinout)
+pinout:
+  ui_in:
+    - "UART RX (Serial Input from PC)"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+  uo_out:
+    - "UART TX (Serial Output to PC)"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+  uio_in:
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+  uio_out:
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+  uio_oe:
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"
+    - "Unused"

@@ -1,36 +1,5 @@
 {
-    "DESIGN_NAME": "tt_um_digital_asic_fp_calculator",
-    "VERILOG_FILES": [
-        "dir::project.v",
-        "dir::chip_top.v",
-        "dir::fp_calculator_top.v",
-        "dir::uart_controller.v",
-        "dir::uart_tx.v",
-        "dir::uart_rx.v",
-        "dir::flopoco_synthesized.v"
-    ],
-    "CLOCK_PORT": "clk",
-    "CLOCK_PERIOD": 20.0,
-    "PDK": "sky130A",
-    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
-
-    "FP_CORE_UTIL": 25,
-    "FP_ASPECT_RATIO": 1,
-    "PL_TARGET_DENSITY_PCT": 35,
-
-    "SYNTH_STRATEGY": "AREA 0",
-    "MAX_FANOUT_CONSTRAINT": 10,
-    "SYNTH_CELL_BLACKLIST": [
-        "sky130_fd_sc_hd__dfstp_2",
-        "sky130_fd_sc_hd__dfstp_4"
-    ],
-    "DRT_THREADS": 4,
-    "PDN_MULTILAYER": true,
-    "RUN_ANTENNA_REPAIR": true,
-
-    "CLOCK_TREE_SYNTH": true,
-    "CTS_TARGET_SKEW": 200,
-    "GRT_ALLOW_CONGESTION": true,
-    "GPL_CELL_PADDING": 2,
-    "DPL_CELL_PADDING": 2
+    "PL_TARGET_DENSITY": 0.45,
+    "GRT_REPAIR_ITERATIONS": 30,
+    "CLOCK_PERIOD": 20.0
 }

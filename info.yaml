@@ -1,5 +1,5 @@
 # Tiny Tapeout para tu proyecto de calculadora FPU
-yaml_version: 1
+yaml_version: 6
 
 project:
   title: "Sky130 FPU Calculator"

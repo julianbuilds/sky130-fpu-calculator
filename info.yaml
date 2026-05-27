@@ -1,5 +1,10 @@
-# Tiny Tapeout project information
+# Tiny Tapeout para tu proyecto de calculadora FPU
+yaml_version: 1
+
 project:
+  title: "Sky130 FPU Calculator"
+  description: "Una calculadora de punto flotante controlada por UART"
+  # ... el resto de tus campos de configuración (author, language, etc.) ...# Tiny Tapeout project information
   yaml_version: "4"
   title:        "ASIC Floating-Point FPU Calculator"
   description:  "32-bit Floating-Point Unit Arithmetic Core integrated with an interactive UART Controller."

@@ -55,11 +55,13 @@ pinout:
   uio[6]: ""
   uio[7]: ""
 
-  # Analog pins - you can add more if you use them, up to 6.
-  # Keep only the "ua" pins you are actually using, and *delete* any unused "ua" pins.
-  # The first pins is always ua[0], and the pin numbers must be sequential.
+  # Analog pins - required for 2x2 tiles size
   ua[0]: ""
   ua[1]: ""
+  ua[2]: ""
+  ua[3]: ""
+  ua[4]: ""
+  ua[5]: ""
 
 # Do not change!
 yaml_version: 6

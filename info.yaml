@@ -8,6 +8,7 @@ project:
   top_module: "tt_um_digital_asic_fp_calculator"
   tiles: "2x2"
   clock_hz: 10000000
+
   source_files:
     - "project.v"
     - "chip_top.v"
@@ -16,6 +17,7 @@ project:
     - "uart_tx.v"
     - "uart_rx.v"
     - "fp16_synthesized.v"
+
   pinout:
     ui[0]: "UART RX"
     ui[1]: ""
@@ -41,5 +43,6 @@ project:
     uio[5]: ""
     uio[6]: ""
     uio[7]: ""
+
   discord: ""
   doc_link: ""

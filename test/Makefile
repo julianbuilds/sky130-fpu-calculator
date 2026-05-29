@@ -1,24 +1,26 @@
 # Makefile
-# See https://docs.tinytapeout.com for more details
+# See https://docs.cocotb.org/en/stable/quickstart.html for more details
 
-# SIM can be icarus or verilator
+# defaults
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 
-# Añade todos tus archivos de diseño aquí (buscándolos desde la carpeta src)
-VERILOG_SOURCES += $(PWD)/../src/project.v \
-                   $(PWD)/../src/chip_top.v \
-                   $(PWD)/../src/fp_calculator_top.v \
-                   $(PWD)/../src/uart_controller.v \
-                   $(PWD)/../src/uart_tx.v \
-                   $(PWD)/../src/uart_rx.v \
-                   $(PWD)/../src/flopoco_synthesized.v
+SRC_DIR = $(PWD)/../src
 
-# TOPLEVEL es el módulo principal de tu diseño según Tiny Tapeout
+# VERILOG_SOURCES includes all the source files required for simulation
+VERILOG_SOURCES += $(SRC_DIR)/project.v
+VERILOG_SOURCES += $(SRC_DIR)/chip_top.v
+VERILOG_SOURCES += $(SRC_DIR)/fp_calculator_top.v
+VERILOG_SOURCES += $(SRC_DIR)/uart_controller.v
+VERILOG_SOURCES += $(SRC_DIR)/uart_tx.v
+VERILOG_SOURCES += $(SRC_DIR)/uart_rx.v
+VERILOG_SOURCES += $(SRC_DIR)/fp16_synthesized.v
+
+# TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
 TOPLEVEL = tt_um_digital_asic_fp_calculator
 
-# MODULE es el nombre del archivo de pruebas de Python (sin el .py)
+# MODULE is the basename of the Python test file
 MODULE = test
 
-# Incluye la infraestructura de simulación de Cocotb
+# include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim

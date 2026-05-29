@@ -1,0 +1,19 @@
+{
+    "DESIGN_NAME": "tt_um_digital_asic_fp_calculator",
+    "VERILOG_FILES": [
+        "dir::project.v",
+        "dir::chip_top.v",
+        "dir::fp_calculator_top.v",
+        "dir::uart_controller.v",
+        "dir::uart_tx.v",
+        "dir::uart_rx.v",
+        "dir::fp16_synthesized.v"
+    ],
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "CLOCK_PERIOD": 100.0,
+    "RT_MAX_LAYER": "met4",
+    "RUN_POST_GPL_DESIGN_REPAIR": true,
+    "RUN_POST_CTS_RESIZER_TIMING": true,
+    "RUN_CTS": true
+}

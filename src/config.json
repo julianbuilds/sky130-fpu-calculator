@@ -12,7 +12,10 @@
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "CLOCK_PERIOD": 100.0,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 682.64 225.76",
     "RT_MAX_LAYER": "met4",
+    "RUN_KLAYOUT_XOR": false,
     "RUN_POST_GPL_DESIGN_REPAIR": true,
     "RUN_POST_CTS_RESIZER_TIMING": true,
     "RUN_CTS": true

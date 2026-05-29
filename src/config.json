@@ -1,24 +1,25 @@
 {
     "DESIGN_NAME": "tt_um_digital_asic_fp_calculator",
     "VERILOG_FILES": [
-        "dir::src/project.v",
-        "dir::src/chip_top.v",
-        "dir::src/fp_calculator_top.v",
-        "dir::src/uart_controller.v",
-        "dir::src/uart_tx.v",
-        "dir::src/uart_rx.v",
-        "dir::src/fp16_synthesized.v"
+        "dir::project.v",
+        "dir::chip_top.v",
+        "dir::fp_calculator_top.v",
+        "dir::uart_controller.v",
+        "dir::uart_tx.v",
+        "dir::uart_rx.v",
+        "dir::fp16_synthesized.v"
     ],
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "CLOCK_PERIOD": 100.0,
-    "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "IO_PIN_ORDER_CFG": "dir::../pin_order.cfg",
     "RT_MAX_LAYER": "met4",
-    "FP_PDN_MULTILAYER": false,
+    "PDN_MULTILAYER": false,
     "SYNTH_STRATEGY": "AREA 0",
-    "PL_TARGET_DENSITY": 0.74,
+    "PL_TARGET_DENSITY_PCT": 74,
+    "CELL_PAD": 1,
+    "DPL_CELL_PADDING": 1,
     "RUN_POST_GPL_DESIGN_REPAIR": true,
     "RUN_POST_CTS_RESIZER_TIMING": true,
-    "GRT_REPAIR_ITERATIONS": 50,
     "RUN_CTS": true
 }

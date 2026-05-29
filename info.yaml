@@ -7,13 +7,11 @@ project:
   language:     "Verilog"
   clock_hz:     10000000
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "2x2"          # Valid values: 1x1 (digital only), 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  # Cambiamos a 4x2 para darle espacio real a los 1079 flip-flops
+  tiles: "4x2"          # Valid values: 1x1 (digital only), 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_digital_asic_fp_calculator"
   
-  # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
     - "project.v"
     - "chip_top.v"
@@ -23,7 +21,6 @@ project:
     - "uart_rx.v"
     - "fp16_synthesized.v"
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
   ui[0]: "UART RX"
@@ -55,7 +52,7 @@ pinout:
   uio[6]: ""
   uio[7]: ""
 
-  # Analog pins - required for 2x2 tiles size
+  # Analog pins - Mantenemos los 6 requeridos por el linter
   ua[0]: ""
   ua[1]: ""
   ua[2]: ""
@@ -63,5 +60,4 @@ pinout:
   ua[4]: ""
   ua[5]: ""
 
-# Do not change!
 yaml_version: 6

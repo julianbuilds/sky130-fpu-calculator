@@ -1,32 +1,49 @@
+// ============================================================
+// project.v
+// Wrapper TinyTapeout para la calculadora FP16
+// Interfaz estándar tt_um_*
+// ============================================================
+// Pinout:
+//   ui[0]   = uart_rx  (entrada serial desde PC)
+//   uo[0]   = uart_tx  (salida serial hacia PC)
+//   ena     = enable
+//   clk     = reloj
+//   rst_n   = reset activo bajo
+// ============================================================
+
 `default_nettype none
 
 module tt_um_digital_asic_fp_calculator (
-    input  wire [7:0] ui_in,    // Entradas digitales dedicadas
-    output wire [7:0] uo_out,   // Salidas digitales dedicadas
-    input  wire [7:0] uio_in,   // Pines bidireccionales - Entrada
-    output wire [7:0] uio_out,  // Pines bidireccionales - Salida
-    output wire [7:0] uio_oe,   // Pines bidireccionales - Habilitación de Salida
-    input  wire       ena,      // Activo en alto si el diseño está seleccionado
-    input  wire       clk,      // Reloj maestro del sistema
-    input  wire       rst_n     // Reset global - ¡ACTIVO EN BAJO!
+    input  wire [7:0] ui_in,
+    output wire [7:0] uo_out,
+    input  wire [7:0] uio_in,
+    output wire [7:0] uio_out,
+    output wire [7:0] uio_oe,
+    input  wire       ena,
+    input  wire       clk,
+    input  wire       rst_n
 );
 
-    // Tiny Tapeout usa reset activo en BAJO (rst_n), 
-    // pero tu chip_top usa reset activo en ALTO (rst).
-    // Invertimos la señal para mantener la compatibilidad:
-    wire rst_high = ~rst_n;
+    // Señales internas
+    wire uart_rx = ui_in[0];
+    wire uart_tx;
+    wire rst     = !rst_n;
 
-    // Instancia de tu chip FPU de 4 pines
-    chip_top u_my_chip (
-        .clk    (clk),
-        .rst    (rst_high),
-        .uart_rx(ui_in[0]),     // Asignamos el pin ui_in[0] para recibir datos (RX)
-        .uart_tx(uo_out[0])     // Asignamos el pin uo_out[0] para transmitir datos (TX)
+    // Salidas no usadas
+    assign uo_out[7:1] = 7'b0;
+    assign uo_out[0]   = uart_tx;
+    assign uio_out     = 8'b0;
+    assign uio_oe      = 8'b0;
+
+    // Suprimir warning de unused
+    wire _unused = &{ena, ui_in[7:1], uio_in};
+
+    // Instancia chip_top
+    chip_top u_chip (
+        .clk     (clk),
+        .rst     (rst),
+        .uart_rx (uart_rx),
+        .uart_tx (uart_tx)
     );
-
-    // Apagamos o ponemos en cero el resto de pines que no usamos para evitar ruidos
-    assign uo_out[7:1]  = 7'b0000000;
-    assign uio_out      = 8'b0000000;
-    assign uio_oe       = 8'b0000000;
 
 endmodule

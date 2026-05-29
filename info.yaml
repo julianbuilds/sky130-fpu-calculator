@@ -1,18 +1,13 @@
-# Tiny Tapeout para tu proyecto de calculadora FPU
 yaml_version: 6
 
 project:
-  title: "Sky130 FPU Calculator"
-  description: "Una calculadora de punto flotante controlada por UART"
-  # ... el resto de tus campos de configuración (author, language, etc.) ...# Tiny Tapeout project information
-  yaml_version: "4"
-  title:        "ASIC Floating-Point FPU Calculator"
-  description:  "32-bit Floating-Point Unit Arithmetic Core integrated with an interactive UART Controller."
-  author:       "Julian"
-  top_module:   "tt_um_digital_asic_fp_calculator"
-  language:     "Verilog"
-  tiles:        "4x2"    
-  clock_hz:     50000000  
+  title:       "Sky130 FP16 Calculator"
+  author:      "Julian"
+  description: "Half-precision floating-point calculator (FP16) with ADD, SUB, MUL, DIV, SQRT and POW operations, controlled via UART."
+  language:    "Verilog"
+  top_module:  "tt_um_digital_asic_fp_calculator"
+  tiles:       "1x1"
+  clock_hz:    10000000
 
   source_files:
     - "project.v"
@@ -21,33 +16,33 @@ project:
     - "uart_controller.v"
     - "uart_tx.v"
     - "uart_rx.v"
-    - "flopoco_synthesized.v"
+    - "fp16_synthesized.v"
 
-# Formato estricto con comillas para evitar errores de parseo YAML
-pinout:
-  "ui[0]": "UART RX (Serial Input from PC)"
-  "ui[1]": "unused"
-  "ui[2]": "unused"
-  "ui[3]": "unused"
-  "ui[4]": "unused"
-  "ui[5]": "unused"
-  "ui[6]": "unused"
-  "ui[7]": "unused"
+  pinout:
+    ui[0]: "UART RX - Serial input from PC"
+    ui[1]: ""
+    ui[2]: ""
+    ui[3]: ""
+    ui[4]: ""
+    ui[5]: ""
+    ui[6]: ""
+    ui[7]: ""
+    uo[0]: "UART TX - Serial output to PC"
+    uo[1]: ""
+    uo[2]: ""
+    uo[3]: ""
+    uo[4]: ""
+    uo[5]: ""
+    uo[6]: ""
+    uo[7]: ""
+    uio[0]: ""
+    uio[1]: ""
+    uio[2]: ""
+    uio[3]: ""
+    uio[4]: ""
+    uio[5]: ""
+    uio[6]: ""
+    uio[7]: ""
 
-  "uo[0]": "UART TX (Serial Output to PC)"
-  "uo[1]": "unused"
-  "uo[2]": "unused"
-  "uo[3]": "unused"
-  "uo[4]": "unused"
-  "uo[5]": "unused"
-  "uo[6]": "unused"
-  "uo[7]": "unused"
-
-  "uio[0]": "unused"
-  "uio[1]": "unused"
-  "uio[2]": "unused"
-  "uio[3]": "unused"
-  "uio[4]": "unused"
-  "uio[5]": "unused"
-  "uio[6]": "unused"
-  "uio[7]": "unused"
+  discord: ""
+  doc_link: ""

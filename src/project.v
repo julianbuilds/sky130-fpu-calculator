@@ -1,16 +1,3 @@
-// ============================================================
-// project.v
-// Wrapper TinyTapeout para la calculadora FP16
-// Interfaz estándar tt_um_*
-// ============================================================
-// Pinout:
-//   ui[0]   = uart_rx  (entrada serial desde PC)
-//   uo[0]   = uart_tx  (salida serial hacia PC)
-//   ena     = enable
-//   clk     = reloj
-//   rst_n   = reset activo bajo
-// ============================================================
-
 `default_nettype none
 
 module tt_um_digital_asic_fp_calculator (
@@ -35,9 +22,6 @@ module tt_um_digital_asic_fp_calculator (
     assign uio_out     = 8'b0;
     assign uio_oe      = 8'b0;
 
-    // Suprimir warning de unused
-    wire _unused = &{ena, ui_in[7:1], uio_in};
-
     // Instancia chip_top
     chip_top u_chip (
         .clk     (clk),
@@ -45,5 +29,8 @@ module tt_um_digital_asic_fp_calculator (
         .uart_rx (uart_rx),
         .uart_tx (uart_tx)
     );
+
+    // Dummy wire para evitar que Yosys optimice y borre los puertos sin usar
+    wire _unused_ok = &{1'b0, ena, ui_in[7:1], uio_in};
 
 endmodule

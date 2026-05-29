@@ -18,6 +18,7 @@
     "PDN_MULTILAYER": false,
     "SYNTH_STRATEGY": "AREA 0",
     "PL_TARGET_DENSITY_PCT": 74,
+    "MAGIC_ZEROIZE_ORIGIN": false,
     "RUN_POST_GPL_DESIGN_REPAIR": true,
     "RUN_POST_CTS_RESIZER_TIMING": true,
     "RUN_CTS": true,

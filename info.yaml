@@ -6,7 +6,7 @@ project:
   description: "Half-precision FP16 calculator with ADD, SUB, MUL, DIV, SQRT and POW via UART."
   language: "Verilog"
   top_module: "tt_um_digital_asic_fp_calculator"
-  tiles: "1x1"
+  tiles: "2x2"
   clock_hz: 10000000
   source_files:
     - "project.v"

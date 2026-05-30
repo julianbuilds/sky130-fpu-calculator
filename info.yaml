@@ -7,8 +7,8 @@ project:
   language:     "Verilog"
   clock_hz:     10000000
 
-  # Cambiamos a 4x2 para darle espacio real a los 1079 flip-flops
-  tiles: "4x2"          # Valid values: 1x1 (digital only), 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  tiles: "4x2"        
 
   top_module:  "tt_um_digital_asic_fp_calculator"
   

@@ -10,5 +10,8 @@
     "RUN_POST_CTS_RESIZER_TIMING": true,
     "RUN_POST_GRT_RESIZER_TIMING": true,
     "RUN_KLAYOUT_XOR": false,
-    "RUN_KLAYOUT_DRC": false
+    "RUN_KLAYOUT_DRC": false,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 682.64 225.76",
+    "RT_MAX_LAYER": "met4"
 }
